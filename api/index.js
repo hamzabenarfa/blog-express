@@ -19,6 +19,12 @@ mongoose.connect(process.env.url,
    }).then(console.log('Connected to MongoDB'))
    .catch(err => console.log(err));
 
+   app.use(function(req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    next();
+  });
+  
 app.use("/api/auth", authRoute);
 app.use("/api/users", userRoute);
 app.use("/api/posts", postRoute);
