@@ -38,7 +38,7 @@ function Card() {
 
             <div className='text'>
                 <h1 className='title'>{post.title}</h1>
-                <p className='description'>{post.descreption} </p>
+                <p className='description'>{post.descreption.substring(0.10)}... </p>
                 <Link to="/" className='button'>Read More</Link>
             </div>
           </div>
