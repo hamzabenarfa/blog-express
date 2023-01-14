@@ -8,7 +8,7 @@ import Posts from "./pages/Posts/Posts";
 import Post from "./pages/Post/Post";
 import Navbar from "./components/NavBar/Navbar";
 import Footer from "./components/Footer/Footer";
-import "./app.scss";
+import "./App.css";
 const Layout = () => {
   return (<div className="app">
     <Navbar />
