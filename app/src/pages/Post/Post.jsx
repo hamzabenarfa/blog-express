@@ -29,15 +29,16 @@ function time (){
 
   return (
     <div>
-      <div className="post-section">
-        <h2 className="post-title">{posts.title}</h2>
-        <div className="post-meta">
-          <p className="post-author">{posts.username}</p>
-          <p className="post-date">{ time()}</p>
+      <div className="section">
+        <h2 className="title">{posts.title}</h2>
+        <div className="meta">
+          <p className="author">{posts.username}</p>
+          <p className="date">{ time()}</p>
         </div>
-        <img className="post-image" src="..." alt="Post Image" />
-        <p className="post-content">
+        <img className="image" src="..." alt="Post Image" />
+        <p className="content">
           {posts.descreption}
+          
         </p>
       </div>
 
