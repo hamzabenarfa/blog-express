@@ -1,41 +1,60 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import "./Posts.scss";
+import "./posts.css";
+
+import axios from 'axios';
+import { useState, useEffect } from 'react';
+
+
 function Posts() {
 
+  const [posts, setPosts] = useState([]);
+ 
+ 
+  useEffect(() => {
+    async function getPosts() {
+   try{
+    const response = await axios.get('http://localhost:4000/api/posts')
+    setPosts(response.data)
+   }
+   catch(error){
+     console.log(error)
+    
+   }
+    
+  }
+  getPosts();
+}, [])
+  
+function time (x){
+  const  d= new  Date(x)
+  return d.toDateString().substring(4,15);
+}
 
   return (
     <div>
-      <div className="container">
+      {posts.map(post => (
+        
+      <div className="post-section" key={post.id}>
+        <h2 className="post-title">{post.title}</h2>
+        <div className="post-meta">
+          <p className="post-author">{post.username}</p>
+          <p className="post-date">{time(post.createdAt)}</p>
+        </div>
+        <div className="post-content-wrap">
 
-          <h2>Post</h2>
-          <div className="blog-post">
-            <div className="blog-post-img">
-              <img src="https://images.unsplash.com/photo-1612287230202-1ff1d85d1bdf?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTU3fHx0ZWNobm9sb2d5fGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="" />
-            </div>
-          </div>
-
-          <div className="blog-post-info">
-            <div className="blog-post-date">
-              <span>Hamza Benarfa</span>
-              <span>1 jan 2022</span>
-            </div>
-            <h1 className="blog-post-title">
-              title 1 from express
-            </h1>
-            <p>
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Excepturi, aut. Corporis iste distinctio cupiditate dolorem explicabo soluta harum! Possimus eveniet aliquid veniam id quod ducimus iusto blanditiis numquam quae sit.
-
+        <img className="post-image" src="..." alt="Post Image" />
+        <p className="post-content">
+          {post.descreption.substring(0, 400)}
             </p>
-            <Link to="/" className="blog-post-btn"> Read More </Link>
-
-          </div>
-
-
-
-
-
+        </div>
+         
+        <div className="post-footer">
+          <Link to={`/post/${post._id}`} className="read-more-btn">Read More</Link>
+        </div>
       </div>
+      ))}
+      
     </div>
   );
 }
