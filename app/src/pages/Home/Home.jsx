@@ -1,6 +1,5 @@
 import React from "react";
-import "./Home.scss";
-import "./Home.scss";
+import "./Home.css";
 import Card from "../../components/card/Card";
 import Category from "../../components/category/Category";
 function Home() {

@@ -1,5 +1,5 @@
 import React from 'react'
-import "./category.scss"
+import "./category.css"
 function Category() {
   return (
     <div className='cat'>
