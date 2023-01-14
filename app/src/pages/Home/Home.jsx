@@ -10,7 +10,6 @@ function Home() {
 
   return (
     <div>
-      <h1 className="display-1">Top Posts :</h1>
 
      
       <div className="cont">

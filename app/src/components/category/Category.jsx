@@ -15,9 +15,7 @@ function Category() {
             <li>
                 gaming
             </li>
-            <li>
-                ...
-            </li>
+          
         </ul>
 
     </div>
