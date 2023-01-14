@@ -1,0 +1,26 @@
+.cat{
+
+    width: 60%;
+    box-shadow: 0 0 15px 8px rgb(210, 206, 206) ;
+    padding-bottom: 20px;
+    padding-top: 20px;
+
+    p{
+        padding: 10px 20px;
+        font-size: 20px;
+        font-weight: 600;
+        text-align: center;
+    }
+    li{
+        padding: 10px 20px;
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        cursor: pointer;
+        transition: all 0.5s ease-in-out;
+        &:hover{
+            background-color: rgb(93, 102, 228);
+            color: white;
+        }
+    }
+}
