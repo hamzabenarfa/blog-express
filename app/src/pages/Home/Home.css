@@ -12,12 +12,13 @@ body {
     --text-color: #212529;
     --background-color: #f8f9fa;
   }
-.post-section {
+    .apost-section {
     display: flex;
     flex-wrap: wrap;
+
   }
  
-  .post-container {
+  .apost-container {
     
     width: 45%;
     margin: 20px;
@@ -26,7 +27,7 @@ body {
     box-shadow: 0px 0px 10px 0px #ccc;
   }
   
-  .post-img {
+  .apost-img {
     width: 100%;
     height: 200px;
     overflow: hidden;
@@ -34,57 +35,40 @@ body {
     border-top-right-radius: 10px;
   }
   
-  .post-img img {
+  .apost-img img {
     width: 100%;
     object-fit: cover;
   }
   
-  .post-content {
+  .apost-content {
     padding: 20px;
   }
   
-  .post-content h2 {
+  .apost-content h2 {
     margin: 0;
     font-size: 24px;
     font-weight: bold;
     color: var(--primary-color);
   }
   
-  .post-content p {
+  .apost-content p {
     font-size: 18px;
     line-height: 1.5;
     color: var(--secondary-color);
   }
   
-  .post-button {
-    display: flex;
-    justify-content: flex-end;
-    padding: 10px 20px;
-    border-top: 1px solid #e9ecef;
-  }
+ 
   
-  .post-button a {
-    font-size: 18px;
-    font-weight: bold;
-    text-decoration: none;
-    margin-left: 10px;
-    color: var(--primary-color);
-    transition: all 0.2s ease-in-out;
-  }
-  
-  .post-button a:hover {
-    color: #fff;
-    background-color: var(--primary-color);
-    border-radius: 5px;
-  }
+
+
 
 /*  category css */
-  .category-section {
+  .acategory-section {
     display: flex;
     flex-wrap: wrap;
   }
   
-  .category-container {
+  .acategory-container {
     width: 30%;
     margin: 20px;
     background-color: #fff;
@@ -93,7 +77,7 @@ body {
     padding: 15px;
   }
   
-  .category-container h2 {
+  .acategory-container h2 {
     margin-bottom: 10px;
     font-size: 24px;
     font-weight: bold;
@@ -117,10 +101,11 @@ body {
     text-decoration: none;
     transition: all 0.2s ease-in-out;
   }
-  .main-container {
+  .amain-container {
     display :grid;
  grid-template-columns: 60% 40%;
  margin-top: 30px;
+ margin-left: 80px;
   }
   /* .left-section {
     width: 70%;
