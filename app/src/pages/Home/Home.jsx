@@ -3,7 +3,6 @@ import "./Home.css";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import { useState, useEffect } from 'react';
-
 function Home() {
  
     const [cats, setCat] = useState([]);
@@ -49,6 +48,7 @@ getPosts();
 console.log(filtereditem)
   return (
     <div>
+      
 
 <div className="amain-container">
     <div className="aleft-section">
@@ -57,7 +57,7 @@ console.log(filtereditem)
             <div className="apost-container">
               
                 <div className="apost-img">
-                    <img src="image.jpg" alt="Post 1" />
+                    <img src="img/111.jpg" alt="Post 1" />
                 </div>
                
                  { posts.slice(0,1).map(post=>(
@@ -69,7 +69,7 @@ console.log(filtereditem)
             </div>
             <div className="apost-container">
                 <div className="apost-img">
-                    <img src="image.jpg" alt="Post 2" />
+                    <img src="img/111.jpg" alt="Post 2" />
                 </div>
                 { posts.slice(1,2).map(post=>(
                 <div className="apost-content" key={post.id}>

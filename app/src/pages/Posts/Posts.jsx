@@ -4,6 +4,7 @@ import "./posts.css";
 
 import axios from 'axios';
 import { useState, useEffect } from 'react';
+import photo from "../../photo/express.jpg";
 
 
 function Posts() {
@@ -44,7 +45,7 @@ function time (x){
         </div>
         <div className="post-content-wrap">
 
-        <img className="post-image" src="..." alt="Post Image" />
+        <img className="post-image" src={photo} alt="Post Image" />
         <p className="post-content">
           {post.descreption.substring(0, 200)}...
             </p>
@@ -77,12 +78,3 @@ export default Posts;
 
 
 
-{/* {data.data.map((post) => (
-  <div key={post.id} className="post">
-    <h1 className="display-4"></h1>
-    <div>{post.substring(0, 400)}...</div>
-    <Link to={`/post/${post.id}`} className="btn btn-primary">
-      Read More
-    </Link>
-  </div>
-))} */}

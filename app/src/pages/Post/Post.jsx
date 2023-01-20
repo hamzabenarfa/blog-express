@@ -3,6 +3,8 @@ import { useParams } from 'react-router-dom'
 import axios from 'axios';
 import { useState, useEffect } from 'react';
  import "./_post.css";
+ import photo from "../../photo/express.jpg";
+
 function Post() {
   const { id } = useParams()
   
@@ -35,7 +37,7 @@ function time (){
           <p className="author">{posts.username}</p>
           <p className="date">{ time()}</p>
         </div>
-        <img className="image" src="..." alt="Post Image" />
+        <img className="image" src={photo}  />
         <p className="content">
           {posts.descreption}
           
