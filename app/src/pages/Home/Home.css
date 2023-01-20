@@ -7,7 +7,7 @@ body {
   
   /* Define color variables */
   :root{
-    --primary-color: #007bff;
+    --primary-color: rgb(54, 52, 52);
     --secondary-color: #6c757d;
     --text-color: #212529;
     --background-color: #f8f9fa;
@@ -17,7 +17,15 @@ body {
     flex-wrap: wrap;
 
   }
- 
+  h1 {
+    font-size: 36px; /* Increase the font size */
+    font-weight: bold; /* Make the font bold */
+    color: rgb(54, 50, 50); /* Change the color to red */
+  
+    padding: 10px; /* Add padding around the title */
+    margin: 20px 0; /* Add margin to the top and bottom of the title */
+    margin-left: 90px;
+  }
   .apost-container {
     
     width: 45%;

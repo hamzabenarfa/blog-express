@@ -8,6 +8,8 @@ import Posts from "./pages/Posts/Posts";
 import Post from "./pages/Post/Post";
 import Navbar from "./components/NavBar/Navbar";
 import Footer from "./components/Footer/Footer";
+import Login from "./pages/login/Login";
+import Register from "./pages/register/Register";
 import "./App.css";
 const Layout = () => {
   return (<div className="app">
@@ -23,8 +25,10 @@ const router = createBrowserRouter([
     path: "/",
     element: <Layout />,
     children: [{ path: "/", element: <Home /> },
-    { path: "/posts/:id", element: <Posts /> },
-    { path: "/post/:id", element: <Post /> }
+    { path: "/posts/", element: <Posts /> },
+    { path: "/post/:id", element: <Post /> },
+    {path: "/login", element: <Login />},
+    {path: "/register", element: <Register />}
     ],
   },
 

@@ -43,13 +43,10 @@ getPosts();
 }, [])
 
 
-
- const filtereditem = posts.slice(0,1).map
-console.log(filtereditem)
   return (
     <div>
       
-
+<h1>Recent Posts:</h1>
 <div className="amain-container">
     <div className="aleft-section">
         <div className="apost-section">
@@ -60,21 +57,23 @@ console.log(filtereditem)
                     <img src="img/111.jpg" alt="Post 1" />
                 </div>
                
-                 { posts.slice(0,1).map(post=>(
+                 { posts.slice(posts.length-1,posts.length).map(post=>(
                 <div className="apost-content" key={post.id}>
                     <h2>{post.title}</h2>
                     <p>{post.descreption.substring(0,100)}...</p>
+                    <Link to={`/post/${post._id}`} className="read-more-btn">Read More</Link>   
                 </div>
-                    ))}        
+                    ))}     
             </div>
             <div className="apost-container">
                 <div className="apost-img">
                     <img src="img/111.jpg" alt="Post 2" />
                 </div>
-                { posts.slice(1,2).map(post=>(
+                { posts.slice(posts.length-2,posts.length-1).map(post=>(
                 <div className="apost-content" key={post.id}>
                     <h2>{post.title}</h2>
                     <p>{post.descreption.substring(0,100)}...</p>
+                    <Link to={`/post/${post._id}`} className="read-more-btn">Read More</Link>
                 </div>
                     ))}  
               
