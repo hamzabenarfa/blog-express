@@ -31,6 +31,7 @@ function time (x){
   return d.toDateString().substring(4,15);
 }
 
+
   return (
     <div>
       {posts.map(post => (
@@ -45,7 +46,7 @@ function time (x){
 
         <img className="post-image" src="..." alt="Post Image" />
         <p className="post-content">
-          {post.descreption.substring(0, 400)}
+          {post.descreption.substring(0, 200)}...
             </p>
         </div>
          
