@@ -3,6 +3,7 @@ import "./Home.css";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import { useState, useEffect } from 'react';
+import Hero from "../../components/hero/Hero";
 function Home() {
  
     const [cats, setCat] = useState([]);
@@ -45,7 +46,7 @@ getPosts();
 
   return (
     <div>
-      
+      <Hero />
 <h1>Recent Posts:</h1>
 <div className="amain-container">
     <div className="aleft-section">

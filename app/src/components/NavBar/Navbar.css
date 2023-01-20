@@ -1,0 +1,50 @@
+
+.Navbar {
+    height: 70px;
+    background-color: transparent; /* This line makes the background transparent */
+}
+
+ .wrapper {
+    padding: 10px 30px;
+    display: flex;
+    justify-content: space-between;
+
+
+
+} 
+
+
+.item {
+    display: flex;
+    align-items: center;
+    font-size: 18px;
+}
+
+.left {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.center {
+    display: flex;
+    font-size: 40px;
+    letter-spacing: 2px;
+}
+
+
+
+.right {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.icons {
+    display: flex;
+    gap: 15px;
+    color: #777;
+    cursor: pointer;
+    margin-left: 10px;
+
+}

@@ -1,7 +1,7 @@
 import React from "react";
 import Person2OutlinedIcon from "@mui/icons-material/Person2Outlined";
 import { Link } from "react-router-dom";
-import "./Navbar.scss";
+import "./Navbar.css";
 function Navbar() {
   return (
     <div className="Navbar">
