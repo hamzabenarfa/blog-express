@@ -1,20 +1,45 @@
 import React from 'react'
 import './login.css'
-import { Link } from 'react-router-dom'
+import { Link , useNavigate } from 'react-router-dom'
+import { useRef } from 'react'
+import axios from 'axios'
+
 function Login() {
+  const history = useNavigate()
+const username = useRef()
+const password = useRef()
+  
+  async function submit(e) {
+      e.preventDefault();
+      
+      try{
+
+      const res= await axios.post('http://localhost:4000/api/auth/login',{
+            username:username.current.value,
+            password:password.current.value
+        })
+        res.data && history('/profile', {state: {id: res.data._id}})
+      }
+      catch(err){
+          console.log(err)
+      }
+  }
+
   return (
     <div>
-          <div class="login-page">
-        <div class="l-form">
-          <form class="login-form">
-            <input type="text" placeholder="username"/>
-            <input type="password" placeholder="password"/>
-            <button>login</button>
-            <p class="message">Not registered? <Link to="/register">Create an account</Link></p>
+          <div className="login-page">
+        <div className="l-form">
+          <form className="login-form" onSubmit={submit}>
+            <input type="text" ref={username} placeholder="username"/>
+            <input type="password" ref={password} placeholder="password"/>
+            <button type='submit'>login</button>
+            <p className="message">Not registered? <Link to="/register">Create an account</Link></p>
           </form>
         </div>
       </div>
-      
+      {console.log(username)}
+      {console.log(password)}
+
     </div>
   )
 }

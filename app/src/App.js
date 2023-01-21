@@ -11,6 +11,7 @@ import Footer from "./components/Footer/Footer";
 import Login from "./pages/login/Login";
 import Register from "./pages/register/Register";
 import "./App.css";
+import Profile from "./profile/Profile";
 const Layout = () => {
   return (<div className="app">
     <Navbar />
@@ -28,7 +29,8 @@ const router = createBrowserRouter([
     { path: "/posts/", element: <Posts /> },
     { path: "/post/:id", element: <Post /> },
     {path: "/login", element: <Login />},
-    {path: "/register", element: <Register />}
+    {path: "/register", element: <Register />},
+    {path: "/profile", element: <Profile />}
     ],
   },
 
