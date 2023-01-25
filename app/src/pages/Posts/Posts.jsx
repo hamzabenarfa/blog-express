@@ -11,12 +11,16 @@ function Posts() {
 
   const [posts, setPosts] = useState([]);
  
+  
  
   useEffect(() => {
     async function getPosts() {
    try{
     const response = await axios.get('http://localhost:4000/api/posts')
     setPosts(response.data)
+ 
+    const res = await axios.get('http://localhost:8080/demo/all')
+    console.log(res)
    }
    catch(error){
      console.log(error)

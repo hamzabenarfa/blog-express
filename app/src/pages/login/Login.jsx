@@ -37,8 +37,7 @@ const password = useRef()
           </form>
         </div>
       </div>
-      {console.log(username)}
-      {console.log(password)}
+     
 
     </div>
   )

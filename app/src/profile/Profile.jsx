@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { useLocation, useNavigate } from "react-router";
+import { useLocation } from "react-router";
 import axios from "axios";
 import { useState } from "react";
 function Profile() {
@@ -51,13 +51,3 @@ function Profile() {
 export default Profile;
 
 
-
-  {/* {console.log(posts)}
-      {posts.map((post) => {
-        return(
-        <div key={post.id}>
-        {user.username === post.username &&   <h1 style={{color:'black',fontSize:'25px'}}>{post.title}</h1> &
-        <p style={{color:'black',fontSize:'20px'}}>{post.descreption}</p>
-     }
-    </div>)
-      })} */}
