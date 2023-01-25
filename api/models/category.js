@@ -1,7 +1,4 @@
 const mongoose = require('mongoose');
-
-
-
 const CategorySchema = new mongoose.Schema({
     name: {
 
@@ -9,8 +6,6 @@ const CategorySchema = new mongoose.Schema({
         required : true,
        
     },
- 
-
 
 }, {timestamps: true});
 
