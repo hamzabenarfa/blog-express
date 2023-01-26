@@ -12,7 +12,7 @@ body {
     --text-color: #212529;
     --background-color: #f8f9fa;
   }
-    .apost-section {
+    .home-post-section {
     display: flex;
     flex-wrap: wrap;
 
@@ -26,7 +26,7 @@ body {
     margin: 20px 0; /* Add margin to the top and bottom of the title */
     margin-left: 90px;
   }
-  .apost-container {
+  .home-post-container {
     
     width: 45%;
     margin: 20px;
@@ -35,7 +35,7 @@ body {
     box-shadow: 0px 0px 10px 0px #ccc;
   }
   
-  .apost-img {
+  .home-post-img {
     width: 100%;
     height: 200px;
     overflow: hidden;
@@ -43,23 +43,23 @@ body {
     border-top-right-radius: 10px;
   }
   
-  .apost-img img {
+  .home-post-img img {
     width: 100%;
     object-fit: cover;
   }
   
-  .apost-content {
+  .home-post-content {
     padding: 20px;
   }
   
-  .apost-content h2 {
+  .home-post-content h2 {
     margin: 0;
     font-size: 24px;
     font-weight: bold;
     color: var(--primary-color);
   }
   
-  .apost-content p {
+  .home-post-content p {
     font-size: 18px;
     line-height: 1.5;
     color: var(--secondary-color);
@@ -71,12 +71,12 @@ body {
 
 
 /*  category css */
-  .acategory-section {
+  .home-category-section {
     display: flex;
     flex-wrap: wrap;
   }
   
-  .acategory-container {
+  .home-category-container {
     width: 30%;
     margin: 20px;
     background-color: #fff;
@@ -85,7 +85,7 @@ body {
     padding: 15px;
   }
   
-  .acategory-container h2 {
+  .home-category-container h2 {
     margin-bottom: 10px;
     font-size: 24px;
     font-weight: bold;
@@ -109,9 +109,9 @@ body {
     text-decoration: none;
     transition: all 0.2s ease-in-out;
   }
-  .amain-container {
+  .home-main-container {
     display :grid;
- grid-template-columns: 60% 40%;
+ grid-template-columns: 70% 30%;
  margin-top: 30px;
  margin-left: 80px;
   }

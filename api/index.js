@@ -3,6 +3,8 @@ const cors = require('cors');
 const app = express();
 app.use(cors());
 
+const port=4000;
+
 const dotenv = require("dotenv");
 dotenv.config();
 const mongoose = require('mongoose');
@@ -45,6 +47,6 @@ app.use("/api/users", userRoute);
 app.use("/api/posts", postRoute);
 app.use("/api/categories", categoryRoute);
 
-app.listen(4000, () => {
-    console.log('Server started on port 4000');
+app.listen(port, () => {
+    console.log(`Server started on port ${port}`);
 });

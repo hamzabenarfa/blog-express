@@ -11,7 +11,7 @@ import Footer from "./components/Footer/Footer";
 import Login from "./pages/login/Login";
 import Register from "./pages/register/Register";
 import "./App.css";
-import Profile from "./profile/Profile";
+import Profile from "./pages/profile/Profile";
 const Layout = () => {
   return (<div className="app">
     <Navbar />

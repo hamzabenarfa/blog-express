@@ -48,30 +48,30 @@ getPosts();
     <div>
       <Hero />
 <h1>Recent Posts:</h1>
-<div className="amain-container">
-    <div className="aleft-section">
-        <div className="apost-section">
+<div className="home-main-container">
+    <div className="home-left-section">
+        <div className="home-post-section">
             
-            <div className="apost-container">
+            <div className="home-post-container">
               
-                <div className="apost-img">
+                <div className="home-post-img">
                     <img src="img/111.jpg" alt="Post 1" />
                 </div>
                
                  { posts.slice(posts.length-1,posts.length).map(post=>(
-                <div className="apost-content" key={post.id}>
+                <div className="home-post-content" key={post.id}>
                     <h2>{post.title}</h2>
                     <p>{post.descreption.substring(0,100)}...</p>
                     <Link to={`/post/${post._id}`} className="read-more-btn">Read More</Link>   
                 </div>
                     ))}     
             </div>
-            <div className="apost-container">
-                <div className="apost-img">
+            <div className="home-post-container">
+                <div className="home-post-img">
                     <img src="img/111.jpg" alt="Post 2" />
                 </div>
                 { posts.slice(posts.length-2,posts.length-1).map(post=>(
-                <div className="apost-content" key={post.id}>
+                <div className="home-post-content" key={post.id}>
                     <h2>{post.title}</h2>
                     <p>{post.descreption.substring(0,100)}...</p>
                     <Link to={`/post/${post._id}`} className="read-more-btn">Read More</Link>
@@ -84,9 +84,9 @@ getPosts();
     </div>
 
    
-    <div className="aright-section" >
-        <div className="acategory-section">
-            <div className="acategory-container">
+    <div className="home-right-section" >
+        <div className="home-category-section">
+            <div className="home-category-container">
                 <h2>Category : </h2>
                 {cats.map(cat=>(
                 <ul key={cat.id}>
