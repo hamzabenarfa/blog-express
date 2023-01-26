@@ -29,6 +29,17 @@ function Profile() {
     fetchPosts();
   }, []);
 
+  const deletePost = async (id) => {
+    try {
+        const response = await axios.delete(`http://localhost:4000/api/posts/${id}`,{data:
+        {username:user.username}});
+        window.location.reload();
+    } catch (error) {
+        console.error(error);
+    }
+};
+
+
   return (
     <>
       <div className="user-profile">
@@ -51,7 +62,7 @@ function Profile() {
                         <div className="user-posts-section">
                           <div className="post">
                           
-                              <h2 className="post-title">  <Link to={`/post/${post._id}`}>{post.title}   </Link></h2>
+                              <h2 className="post-title">  <Link to={`/post/${post._id}`}> {post.title}   </Link></h2>
                          
                             <p className="post-content">
                         
@@ -59,7 +70,10 @@ function Profile() {
                             </p>
                             <div className="post-buttons">
                               <button className="edit-button">Edit</button>
-                              <button className="delete-button">Delete</button>
+                          
+                              <button className="delete-button" onClick={() =>
+                               deletePost(post._id)}
+                              >Delete</button>
                             </div>
                           </div>
                         </div>
