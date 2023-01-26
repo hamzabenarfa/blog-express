@@ -1,7 +1,4 @@
-
-
-
-  .user-photo-name-container {
+.user-photo-name-container {
     display: flex;
     align-items: center;
     background-size: cover;
@@ -10,10 +7,10 @@
     border-radius: 10px;
     box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2);
     transition: all 0.5s ease-in-out;
- 
-  }
 
-  .post {
+}
+
+.post {
     margin-bottom: 80px;
     height: 80%;
     width: 80%;
@@ -21,57 +18,63 @@
     border-radius: 10px;
     box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2);
     font-family: 'Open Sans', sans-serif;
-  }
-  .user-photo {
+}
+
+.user-photo {
     width: 150px;
     height: 150px;
     border-radius: 50%;
     margin-right: 20px;
-  }
-  .user-name {
+}
+
+.user-name {
     font-size: 32px;
     font-weight: bold;
     text-transform: capitalize;
     color: #007bff;
     font-family: 'Open Sans', sans-serif;
-  }
+}
 
- h3 {
+h3 {
     display: flex;
     float: right;
 }
 
-  .kcontainer{
+.kcontainer {
     display: flex;
     max-width: 80%;
     margin: 0 auto;
-  }
-  
+}
 
-  .user-posts-section {
+
+.user-posts-section {
     margin-top: 20px;
-  }
-  
+}
 
-  .post-title {
+
+.post-title {
     font-size: 24px;
     font-weight: bold;
     margin-bottom: 10px;
     color: #333;
-  }
-  .post-content {
+    
+}
+
+.post-content {
     font-size: 18px;
     line-height: 1.5;
     text-align: justify;
     color: #444;
-  }
-  .post-buttons {
+}
+
+.post-buttons {
     display: flex;
     justify-content: flex-end;
     margin-top: 10px;
-  }
-  
-  .edit-button, .delete-button {
+}
+
+.edit-button,
+.delete-button {
     padding: 10px 20px;
     font-size: 18px;
     font-weight: bold;
@@ -80,47 +83,50 @@
 
     transition: all 0.3s ease-in-out;
     cursor: pointer;
-    
-  }
-  
-  .edit-button {
+
+}
+
+.edit-button {
     background-color: transparent;
     color: #fff;
-  }
-  
-  
-  .delete-button {
+}
+
+
+.delete-button {
     background-color: transparent;
     color: #fff;
-  }
+}
 
-    .edit-button:hover {
-        color:  #ff9966;
+.edit-button:hover {
+    color: #ff9966;
 
-    }
-    .delete-button:hover {
-        color:   #ff5e62; 
+}
 
-    }
+.delete-button:hover {
+    color: #ff5e62;
 
-    .user-info{
-            margin:  20px;
-            height: 400px;
-            border-radius: 10px;
-            box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2); 
-            padding: 15px;
+}
 
-    }
-    .user-info p {
-        font-size: 18px;
-        font-weight: bold;
-        margin-bottom: 10px;
-        color: #333;
-        text-align: center;
-    }
-    .mc{
-        display :grid;
-        grid-template-columns: 70% 28%;
-        margin-top: 10px;
+.user-info {
+    margin: 20px;
+    height: 400px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2);
+    padding: 15px;
 
-    }
+}
+
+.user-info p {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #333;
+    text-align: center;
+}
+
+.mc {
+    display: grid;
+    grid-template-columns: 70% 28%;
+    margin-top: 10px;
+
+}

@@ -12,6 +12,8 @@ import Login from "./pages/login/Login";
 import Register from "./pages/register/Register";
 import "./App.css";
 import Profile from "./pages/profile/Profile";
+import Contact from "./pages/Contact/Contact";
+import About from "./pages/Aboutus/About";
 const Layout = () => {
   return (<div className="app">
     <Navbar />
@@ -30,7 +32,9 @@ const router = createBrowserRouter([
     { path: "/post/:id", element: <Post /> },
     {path: "/login", element: <Login />},
     {path: "/register", element: <Register />},
-    {path: "/profile", element: <Profile />}
+    {path: "/profile", element: <Profile />},
+    {path: "/contact", element: <Contact />},
+    {path: "/about", element: <About />}
     ],
   },
 

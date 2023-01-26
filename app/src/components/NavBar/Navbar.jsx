@@ -27,12 +27,12 @@ function Navbar() {
 
         <div className="right">
           <div className="item">
-            <Link className="link" to="/">
+            <Link className="link" to="/about">
               About us
             </Link>
           </div>
           <div className="item">
-            <Link className="link" to="/">
+            <Link className="link" to="/contact">
               Contact
             </Link>
 
