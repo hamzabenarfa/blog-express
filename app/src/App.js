@@ -14,6 +14,8 @@ import "./App.css";
 import Profile from "./pages/profile/Profile";
 import Contact from "./pages/Contact/Contact";
 import About from "./pages/Aboutus/About";
+import Write from "./pages/write/Write";
+import Edit from "./pages/edit/Edit";
 const Layout = () => {
   return (<div className="app">
     <Navbar />
@@ -34,7 +36,9 @@ const router = createBrowserRouter([
     {path: "/register", element: <Register />},
     {path: "/profile", element: <Profile />},
     {path: "/contact", element: <Contact />},
-    {path: "/about", element: <About />}
+    {path: "/about", element: <About />},
+    {path: "/write/:id", element: <Write />},
+    {path: "/edit/:id", element: <Edit />},
     ],
   },
 

@@ -1,5 +1,7 @@
 .user-photo-name-container {
     display: flex;
+    justify-content: flex-start;
+
     align-items: center;
     background-size: cover;
     background-position: center;
@@ -31,6 +33,7 @@
     font-size: 32px;
     font-weight: bold;
     text-transform: capitalize;
+    
     color: #007bff;
     font-family: 'Open Sans', sans-serif;
 }
@@ -129,4 +132,22 @@ h3 {
     grid-template-columns: 70% 28%;
     margin-top: 10px;
 
+}
+
+
+
+
+.add-post-btn {
+    padding: 5px 10px;
+    background-color: #007bff;
+    color: #fff;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+}
+
+.add-post-btn:hover {
+    background-color: #0069d9;
 }

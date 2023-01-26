@@ -5,6 +5,8 @@ import { useState } from "react";
 import photo from "../../photo/express.jpg";
 import "./profile.css";
 import { Link } from "react-router-dom";
+
+
 function Profile() {
   const location = useLocation();
 
@@ -29,6 +31,7 @@ function Profile() {
     fetchPosts();
   }, []);
 
+  // delete post
   const deletePost = async (id) => {
     try {
         const response = await axios.delete(`http://localhost:4000/api/posts/${id}`,{data:
@@ -42,10 +45,12 @@ function Profile() {
 
   return (
     <>
+
       <div className="user-profile">
         <div className="user-photo-name-container">
           <img className="user-photo" src={photo} alt="User Photo" />
           <h1 className="user-name">{user.username}</h1>
+          
         </div>
       </div>
 
@@ -69,8 +74,8 @@ function Profile() {
                               {post.descreption.substring(0, 100)}...
                             </p>
                             <div className="post-buttons">
-                              <button className="edit-button">Edit</button>
-                          
+                           <Link to={`/edit/${post._id}`}>   <button className="edit-button">Edit</button>
+                           </Link>
                               <button className="delete-button" onClick={() =>
                                deletePost(post._id)}
                               >Delete</button>
@@ -87,9 +92,10 @@ function Profile() {
         </div>
 
         <div className="user-info">
-          <p>User information </p>
-          <h5>Mail : </h5>
-          <h4>{user.email}</h4>
+        <div className="link-container">
+          
+            <Link to={`/write/${user.username}`}className="add-post-btn" >ADD POST</Link>
+          </div>
         </div>
       </div>
     </>
