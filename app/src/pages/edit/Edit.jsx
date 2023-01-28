@@ -14,11 +14,11 @@ function Edit() {
     e.preventDefault();
     try {
       const res = await axios.put(`http://localhost:4000/api/posts/${id}`, {
-        data:{
-        user,
+       
+        username:user,
         title,
         descreption
-      }
+      
     });
     } catch (err) {
       console.log(err);
