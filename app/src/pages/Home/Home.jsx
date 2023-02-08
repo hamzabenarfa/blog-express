@@ -45,7 +45,15 @@ function Home() {
             </div>
           </div>
         </div>
+<<<<<<< HEAD
       </div>
+=======
+    </div>
+  
+
+</div>
+
+>>>>>>> 42334cfa61eef5ebe9a75cd9f3fe7d878ad3bd59
     </div>
   );
 }
