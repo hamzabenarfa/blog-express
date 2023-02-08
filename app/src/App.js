@@ -1,8 +1,4 @@
-import {
-  createBrowserRouter,
-  RouterProvider,
-  Outlet,
-} from "react-router-dom";
+import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 import Home from "./pages/Home/Home";
 import Posts from "./pages/Posts/Posts";
 import Post from "./pages/Post/Post";
@@ -17,11 +13,12 @@ import About from "./pages/Aboutus/About";
 import Write from "./pages/write/Write";
 import Edit from "./pages/edit/Edit";
 const Layout = () => {
-  return (<div className="app">
-    <Navbar />
-    <Outlet />
-    <Footer />
-  </div>
+  return (
+    <div className="app">
+      <Navbar />
+      <Outlet />
+      <Footer />
+    </div>
   );
 };
 
@@ -29,27 +26,26 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <Layout />,
-    children: [{ path: "/", element: <Home /> },
-    { path: "/posts/", element: <Posts /> },
-    { path: "/post/:id", element: <Post /> },
-    {path: "/login", element: <Login />},
-    {path: "/register", element: <Register />},
-    {path: "/profile", element: <Profile />},
-    {path: "/contact", element: <Contact />},
-    {path: "/about", element: <About />},
-    {path: "/write/:id", element: <Write />},
-    {path: "/edit/:id", element: <Edit />},
+    children: [
+      { path: "/", element: <Home /> },
+      { path: "/posts/", element: <Posts /> },
+      { path: "/post/:id", element: <Post /> },
+      { path: "/login", element: <Login /> },
+      { path: "/register", element: <Register /> },
+      { path: "/profile", element: <Profile /> },
+      { path: "/contact", element: <Contact /> },
+      { path: "/about", element: <About /> },
+      { path: "/write/:id", element: <Write /> },
+      { path: "/edit/:id", element: <Edit /> },
     ],
   },
-
-
 ]);
 
 function App() {
   return (
     <>
       <div className="container">
-      <RouterProvider router={router} />
+        <RouterProvider router={router} />
       </div>
     </>
   );

@@ -15,7 +15,28 @@
     margin-bottom: 10px;
     text-transform: capitalize;
   }
-  
+  .main{
+    display: grid;
+    grid-template-columns: 60% 30%; 
+ 
+
+  }
+  .test{
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 28px;
+    margin-left: 50px;
+    }
+    .test1{
+        width: auto;
+       
+    margin: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px 0px #ccc;
+    padding: 15px;
+  }
+   
   .meta {
     font-size: 14px;
     margin-bottom: 20px;

@@ -37,12 +37,9 @@ function Navbar() {
             </Link>
 
             <div className="icons">
-           
               <Link className="link" to="/login">
-                
                 <Person2OutlinedIcon />
               </Link>
-
             </div>
           </div>
         </div>

@@ -1,17 +1,17 @@
-
 .Navbar {
     height: 70px;
-    background-color: transparent; /* This line makes the background transparent */
+    background-color: transparent;
+    /* This line makes the background transparent */
 }
 
- .wrapper {
+.wrapper {
     padding: 10px 30px;
     display: flex;
     justify-content: space-between;
 
 
 
-} 
+}
 
 
 .item {

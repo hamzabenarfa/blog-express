@@ -1,51 +1,40 @@
-import React from 'react'
-import { useParams } from 'react-router-dom'
-import axios from 'axios';
-import { useState, useEffect } from 'react';
- import "./_post.css";
- import photo from "../../photo/express.jpg";
-
+import React from "react";
+import { useParams } from "react-router-dom";
+import "./_post.css";
+import photo from "../../photo/express.jpg";
+import useAxios from "../../hooks/useAxios";
+import time from "../../components/Helpers/TimeFormat";
 function Post() {
-  const { id } = useParams()
-  
-  const [posts, setPosts] = useState([]);
- 
-  useEffect(() => {
-    async function getPosts() {
-   try{
-    const response = await axios.get(`http://localhost:4000/api/posts/${id}`)
-    setPosts(response.data)
-   }
-   catch(error){
-     console.log(error)
-   }
-    
-  }
-  getPosts();
-}, [])
-  
-function time (){
-  const  d= new  Date(posts.createdAt)
-  return d.toDateString().substring(4,15);
-}
+  const { id } = useParams();
+  const { data } = useAxios(`http://localhost:4000/api/posts/${id}`, "get");
 
   return (
-    <div>
+    <div className="main">
       <div className="section">
-        <h2 className="title">{posts.title}</h2>
+        <h2 className="title">{data && data.title}</h2>
         <div className="meta">
-          <p className="author">{posts.username}</p>
-          <p className="date">{ time()}</p>
+          <p className="author">{data && data.username}</p>
+          <p className="date">{time(data && data.createdAt)}</p>
         </div>
-        <img className="image" src={photo}  />
-        <p className="content">
-          {posts.descreption}
-          
-        </p>
+        <img className="image" src={photo} />
+        <p className="content">{data && data.descreption}</p>
       </div>
 
+      <div className="profile">
+        <div className="test">
+          <div className="test1">
+            <h1>{data && data.username}</h1>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde nemo
+              vel necessitatibus voluptate accusantium minima ut aliquam
+              voluptas excepturi rerum rem esse expedita nulla, pariatur natus
+              consequatur, sequi quasi atque.
+            </p>
+          </div>
+        </div>
+      </div>
     </div>
-  )
+  );
 }
 
-export default Post
+export default Post;

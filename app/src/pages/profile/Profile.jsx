@@ -1,100 +1,108 @@
-import React, { useEffect } from "react";
 import { useLocation } from "react-router";
 import axios from "axios";
-import { useState } from "react";
 import photo from "../../photo/express.jpg";
 import "./profile.css";
 import { Link } from "react-router-dom";
-
+import useAxios from "../../hooks/useAxios";
 
 function Profile() {
   const location = useLocation();
+  const id = location.state.id;
+  const { data: user } = useAxios(`http://localhost:4000/api/users/${id}`,"get");
 
-  const [user, setUser] = useState({});
-
-  useEffect(() => {
-    const fetchUser = async () => {
-      const res = await axios.get(
-        `http://localhost:4000/api/users/${location.state.id}`
-      );
-      setUser(res.data);
-    };
-    fetchUser();
-  }, []);
-
-  const [posts, setPosts] = useState([]);
-  useEffect(() => {
-    const fetchPosts = async () => {
-      const res = await axios.get(`http://localhost:4000/api/posts/`);
-      setPosts(res.data);
-    };
-    fetchPosts();
-  }, []);
+  const { data: posts } = useAxios(`http://localhost:4000/api/posts/`, "get");
 
   // delete post
   const deletePost = async (id) => {
     try {
-        const response = await axios.delete(`http://localhost:4000/api/posts/${id}`,{data:
-        {username:user.username}});
-        window.location.reload();
+      await axios.delete(`http://localhost:4000/api/posts/${id}`,
+        { data: 
+          { username: user.username } 
+        }
+      );
+      window.location.reload();
     } catch (error) {
-        console.error(error);
+      console.error(error);
     }
-};
-
+  };
 
   return (
     <>
-
       <div className="user-profile">
         <div className="user-photo-name-container">
           <img className="user-photo" src={photo} alt="User Photo" />
-          <h1 className="user-name">{user.username}</h1>
-          
+          <h1 className="user-name">{user && user.username}</h1>
         </div>
       </div>
 
       <div className="mc">
         <div className="map">
-          {posts.map((post) => {
-            return (
-              <div key={post.id}>
-                {user.username === post.username && (
-                  <div>
-                    <div className="user-profile">
-                      {/* posts */}
-                      <div className="kcontainer">
-                        <div className="user-posts-section">
-                          <div className="post">
-                          
-                              <h2 className="post-title">  <Link to={`/post/${post._id}`}> {post.title}   </Link></h2>
-                         
-                            <p className="post-content">
-                        
-                              {post.descreption.substring(0, 100)}...
-                            </p>
-                            <div className="post-buttons">
-                           <Link to={`/edit/${post._id}`}>   <button className="edit-button">Edit</button>
-                           </Link>
-                              <button className="delete-button" onClick={() =>
-                               deletePost(post._id)}
-                              >Delete</button>
+          {posts ? (
+            posts.map((post) => {
+              return (
+                <div key={post.id}>
+                  {user ? (
+                    user.username === post.username && (
+                      <div>
+                        <div className="user-profile">
+                          {/* posts */}
+                          <div className="kcontainer">
+                            <div className="user-posts-section">
+                              <div className="post">
+                                <h2 className="post-title">
+                                  <Link to={`/post/${post._id}`}>
+                                    {post.title}
+                                  </Link>
+                                </h2>
+
+                                <p className="post-content">
+                                  {post.descreption.substring(0, 100)}...
+                                </p>
+                                <div className="post-buttons">
+                                  <Link to={`/edit/${post._id}`}>
+                                    <button className="edit-button">
+                                      Edit
+                                    </button>
+                                  </Link>
+                                  <button
+                                    className="delete-button"
+                                    onClick={() => deletePost(post._id)}
+                                  >
+                                    Delete
+                                  </button>
+                                </div>
+                              </div>
                             </div>
                           </div>
                         </div>
                       </div>
-                    </div>
-                  </div>
-                )}
-              </div>
-            );
-          })}
+                    )
+                  ) : (
+                    <h1>no posts</h1>
+                  )}
+                </div>
+              );
+            })
+          ) : (
+            <h1>no posts</h1>
+          )}
         </div>
 
         <div className="user-info">
-        <div className="link-container">
-          
-            <Link to={`/write/${user.username}`}className="add-post-btn" >ADD POST</Link>
+          <div className="link-container">
+            <Link
+              to={`/write/${user && user.username}`}
+              className="add-post-btn"
+            >
+              ADD POST
+            </Link>
+            <div className="add-post-btn">change name</div>
+            <div className="add-post-btn">change email</div>
+            <div className="add-post-btn">change password</div>
+            <div className="add-post-btn">change photo</div>
+            <div className="add-post-btn">delete account</div>
+
+            <div className="add-post-btn">logout</div>
           </div>
         </div>
       </div>

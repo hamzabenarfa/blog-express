@@ -43,15 +43,19 @@ h3 {
     float: right;
 }
 
-.kcontainer {
+/* .kcontainer {
     display: flex;
     max-width: 80%;
     margin: 0 auto;
-}
+   
+} */
 
 
 .user-posts-section {
     margin-top: 20px;
+    display: flex;
+    margin-left: 50px;
+   
 }
 
 
@@ -139,6 +143,7 @@ h3 {
 
 .add-post-btn {
     padding: 5px 10px;
+    margin-top: 10px;
     background-color: #007bff;
     color: #fff;
     border-radius: 5px;
