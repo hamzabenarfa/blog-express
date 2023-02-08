@@ -29,7 +29,7 @@ mongoose
 
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
-    cb(null, "images");
+    cb(null, "../app/src/photo");
   },
   filename: (req, file, cb) => {
     cb(null, file.originalname);
@@ -46,7 +46,7 @@ app.use("/api/users", userRoute);
 app.use("/api/posts", postRoute);
 app.use("/api/categories", categoryRoute);
 
-app.use("/api/images", express.static("images"));
+app.use("/api/images", express.static("../app/src/photo"));
 
 app.listen(port, () => {
   console.log(`Server started on port ${port}`);
