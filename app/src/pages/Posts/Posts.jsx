@@ -6,7 +6,9 @@ import time from "../../components/Helpers/TimeFormat";
 import photo from "../../photo/express.jpg";
 
 function Posts() {
-  const { data } = useAxios("http://localhost:4000/api/posts", "get");
+  const url = process.env.REACT_APP_URL
+
+  const { data } = useAxios(`${url}/posts`, "get");
 
   return (
     <div>

@@ -7,8 +7,9 @@ import useAxios from "../../hooks/useAxios";
 import { Link } from "react-router-dom";
 function Edit() {
   const { id } = useParams();
+  const url = process.env.REACT_APP_URL
 
-  const { data } = useAxios(`http://localhost:4000/api/posts/${id}`, "get");
+  const { data } = useAxios(`${url}/posts/${id}`, "get");
   
   const [title, seTtitle] = useState("");
   const [descreption, setdescreption] = useState("");
@@ -16,7 +17,7 @@ function Edit() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.put(`http://localhost:4000/api/posts/${id}`, {
+      await axios.put(`${url}posts/${id}`, {
         username: data.username,
         title,
         descreption,
@@ -30,7 +31,7 @@ function Edit() {
     <div>
       <div>
         <div className=" write-container">
-          <div class="write-card">
+          <div className="write-card">
             <form>
               <label htmlFor="title">Title</label>
               <input
@@ -51,11 +52,11 @@ function Edit() {
                 onChange={(e) => setdescreption(e.target.value)}
               ></textarea>
 
-              <Link to={"/"}>
                 <button type="submit" className="write" onClick={handleSubmit}>
-                  Submit
+                
+              <Link to={"/"}>Submit</Link>  
                 </button>
-              </Link>
+             
             </form>
           </div>
         </div>

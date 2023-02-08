@@ -4,9 +4,13 @@ import useAxios from "../../hooks/useAxios";
 import { Link } from "react-router-dom";
 import Hero from "../../components/hero/Hero";
 import HomePost from "../../components/Custom/HomePost";
+
+
+
 function Home() {
-  const { data } = useAxios("http://localhost:4000/api/categories", "get");
-  const { data: posts } = useAxios("http://localhost:4000/api/posts", "get");
+  const url = process.env.REACT_APP_URL
+  const { data:categories } = useAxios(`${url}/categories`, "get");
+  const { data: posts } = useAxios(`${url}/posts`, "get");
 
   return (
     <div>
@@ -34,8 +38,8 @@ function Home() {
           <div className="home-category-section">
             <div className="home-category-container">
               <h2>Category : </h2>
-              {data &&
-                data.map((category) => (
+              {categories  &&
+                categories .map((category) => (
                   <ul key={category.id}>
                     <li>
                       <Link to={"/"}>{category.name}</Link>

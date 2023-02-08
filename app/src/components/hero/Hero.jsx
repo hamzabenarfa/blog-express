@@ -4,13 +4,13 @@ import "./hero.css";
 function Hero() {
   return (
     <div>
-      <section class="hero-area">
-        <div class="hero-content">
+      <section className="hero-area">
+        <div className="hero-content">
           <h1>Welcome to our blog</h1>
           <p>
             We share the latest news and insights on technology, design and more
           </p>
-          <Link to="/login" class="cta-button">
+          <Link to="/login" className="cta-button">
             Join Us
           </Link>
         </div>

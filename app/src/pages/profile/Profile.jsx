@@ -6,16 +6,18 @@ import { Link } from "react-router-dom";
 import useAxios from "../../hooks/useAxios";
 
 function Profile() {
+  const url = process.env.REACT_APP_URL
+
   const location = useLocation();
   const id = location.state.id;
-  const { data: user } = useAxios(`http://localhost:4000/api/users/${id}`,"get");
+  const { data: user } = useAxios(`${url}/users/${id}`,"get");
 
-  const { data: posts } = useAxios(`http://localhost:4000/api/posts/`, "get");
+  const { data: posts } = useAxios(`${url}/posts/`, "get");
 
   // delete post
   const deletePost = async (id) => {
     try {
-      await axios.delete(`http://localhost:4000/api/posts/${id}`,
+      await axios.delete(`${url}/posts/${id}`,
         { data: 
           { username: user.username } 
         }

@@ -5,8 +5,10 @@ import photo from "../../photo/express.jpg";
 import useAxios from "../../hooks/useAxios";
 import time from "../../components/Helpers/TimeFormat";
 function Post() {
+  const url = process.env.REACT_APP_URL
+
   const { id } = useParams();
-  const { data } = useAxios(`http://localhost:4000/api/posts/${id}`, "get");
+  const { data } = useAxios(`${url}/posts/${id}`, "get");
 
   return (
     <div className="main">

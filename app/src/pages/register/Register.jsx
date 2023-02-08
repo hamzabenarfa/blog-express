@@ -4,6 +4,8 @@ import { useState } from "react";
 import axios from "axios";
 import "./register.css";
 function Register() {
+  const url = process.env.REACT_APP_URL
+
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [email, setMail] = useState("");
@@ -12,7 +14,7 @@ function Register() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post("http://localhost:4000/api/auth/register", {
+      const res = await axios.post(`${url}/auth/register`, {
         username,
         email,
         password,

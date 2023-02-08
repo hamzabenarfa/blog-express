@@ -4,6 +4,8 @@ import { useState } from "react";
 import axios from "axios";
 import "./write.css";
 function Write() {
+  const url = process.env.REACT_APP_URL
+
   const { id } = useParams();
 
   const [title, seTtitle] = useState("");
@@ -12,7 +14,7 @@ function Write() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post("http://localhost:4000/api/posts/", {
+      const res = await axios.post(`${url}/posts/`, {
         username: id,
         title,
         descreption,
@@ -26,7 +28,7 @@ function Write() {
   return (
     <div>
       <div className=" write-container">
-        <div class="write-card">
+        <div className="write-card">
           <form>
             <label htmlFor="title">Title</label>
             <input

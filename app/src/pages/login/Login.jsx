@@ -5,6 +5,8 @@ import { useRef } from "react";
 import axios from "axios";
 
 function Login() {
+  const url = process.env.REACT_APP_URL
+
   const history = useNavigate();
   const username = useRef();
   const password = useRef();
@@ -13,7 +15,7 @@ function Login() {
     e.preventDefault();
 
     try {
-      const res = await axios.post("http://localhost:4000/api/auth/login", {
+      const res = await axios.post(`${url}/auth/login`, {
         username: username.current.value,
         password: password.current.value,
       });
