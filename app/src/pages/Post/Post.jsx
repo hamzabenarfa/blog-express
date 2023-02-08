@@ -21,7 +21,7 @@ function Post() {
         <p className="content">{data && data.descreption}</p>
       </div>
 
-      <div className="profile">
+      {/* <div className="profile">
         <div className="test">
           <div className="test1">
             <h1>{data && data.username}</h1>
@@ -33,7 +33,7 @@ function Post() {
             </p>
           </div>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 }
