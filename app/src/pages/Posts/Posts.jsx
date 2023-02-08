@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import "./posts.css";
 import useAxios from "../../hooks/useAxios";
 import time from "../../components/Helpers/TimeFormat";
-import photo from "../../photo/express.jpg";
 
 function Posts() {
   const url = process.env.REACT_APP_URL
@@ -21,7 +20,7 @@ function Posts() {
               <p className="post-date">{time(post.createdAt)}</p>
             </div>
             <div className="post-content-wrap">
-              <img className="post-image" src={photo} alt="Post Image" />
+              <img className="post-image" src={post.photo} alt="Post Image" />
               <p className="post-content">
                 {post.descreption.substring(0, 200)}...
               </p>

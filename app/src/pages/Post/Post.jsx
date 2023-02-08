@@ -1,7 +1,6 @@
 import React from "react";
 import { useParams } from "react-router-dom";
 import "./_post.css";
-import photo from "../../photo/express.jpg";
 import useAxios from "../../hooks/useAxios";
 import time from "../../components/Helpers/TimeFormat";
 function Post() {
@@ -18,7 +17,7 @@ function Post() {
           <p className="author">{data && data.username}</p>
           <p className="date">{time(data && data.createdAt)}</p>
         </div>
-        <img className="image" src={photo} />
+        <img className="image" src={data && data.photo} />
         <p className="content">{data && data.descreption}</p>
       </div>
 
