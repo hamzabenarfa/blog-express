@@ -27,7 +27,7 @@ function Write() {
         username: id,
         title,
         descreption,
-        photo: `${url}/images/${file.name}`,
+        photo: `https://raw.githubusercontent.com/hamzabenarfa/blog-express/main/api/images/${file.name}`,
       });
 
       res.data && window.location.replace(`/post/${res.data._id}`);
