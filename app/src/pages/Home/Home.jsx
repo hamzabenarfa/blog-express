@@ -5,11 +5,9 @@ import { Link } from "react-router-dom";
 import Hero from "../../components/hero/Hero";
 import HomePost from "../../components/Custom/HomePost";
 
-
-
 function Home() {
-  const url = process.env.REACT_APP_URL
-  const { data:categories } = useAxios(`${url}/categories`, "get");
+  const url = process.env.REACT_APP_URL;
+  const { data: categories } = useAxios(`${url}/categories`, "get");
   const { data: posts } = useAxios(`${url}/posts`, "get");
 
   return (
@@ -20,15 +18,10 @@ function Home() {
         <div className="home-left-section">
           <div className="home-post-section">
             <div className="home-post-container">
-              <div className="home-post-img">
-                <img src="img/111.jpg" alt="Post 1" />
-              </div>
               <HomePost posts={posts} first={1} second={2} />
             </div>
+       
             <div className="home-post-container">
-              <div className="home-post-img">
-                <img src="img/111.jpg" alt="Post 2" />
-              </div>
               <HomePost posts={posts} first={0} second={1} />
             </div>
           </div>
@@ -38,8 +31,8 @@ function Home() {
           <div className="home-category-section">
             <div className="home-category-container">
               <h2>Category : </h2>
-              {categories  &&
-                categories .map((category) => (
+              {categories &&
+                categories.map((category) => (
                   <ul key={category.id}>
                     <li>
                       <Link to={"/"}>{category.name}</Link>
