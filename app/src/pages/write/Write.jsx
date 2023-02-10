@@ -12,7 +12,7 @@ function Write() {
   const [descreption, setdescreption] = useState("");
   const [file, setFile] = useState(null);
 
-  console.log(file);
+ 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
