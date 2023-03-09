@@ -8,7 +8,7 @@ function Post() {
 
   const { id } = useParams();
   const { data } = useAxios(`${url}/posts/${id}`, "get");
-
+  console.log(data)
   return (
     <div className="main">
       <div className="section">

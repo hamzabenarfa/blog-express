@@ -13,7 +13,6 @@ function Login() {
 
   async function submit(e) {
     e.preventDefault();
-
     try {
       const res = await axios.post(`${url}/auth/login`, {
         username: username.current.value,

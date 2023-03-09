@@ -1,42 +1,37 @@
 const express = require("express");
 const cors = require("cors");
-const app = express();
-
 const dotenv = require("dotenv");
-dotenv.config();
-
-app.use(cors());
-
-const port = process.env.PORT || 4000;
-
 const mongoose = require("mongoose");
+const multer = require("multer");
 
 const authRoute = require("./routes/auth");
 const userRoute = require("./routes/users");
 const postRoute = require("./routes/posts");
-const categoryRoute = require("./routes/categories");
 
-const multer = require("multer");
+const port = process.env.PORT || 4000;
 
+const app = express();
+dotenv.config();
+app.use(cors());
 app.use(express.json());
 
 mongoose.set("strictQuery", false);
-
 mongoose
   .connect(process.env.url, { useNewUrlParser: true, useUnifiedTopology: true })
-  .then(console.log("Connected to MongoDB"))
+  .then(() => console.log("Connected to MongoDB"))
   .catch((err) => console.log(err));
 
-const storage = multer.diskStorage({
-  destination: (req, file, cb) => {
-    cb(null, "./public/images");
-  },
-  filename: (req, file, cb) => {
-    cb(null, file.originalname);
-  },
+const upload = multer({
+  storage: multer.diskStorage({
+    destination: (req, file, cb) => {
+      cb(null, "./public/images");
+    },
+    filename: (req, file, cb) => {
+      cb(null, file.originalname);
+    },
+  }),
 });
 
-const upload = multer({ storage: storage });
 app.post("/api/upload", upload.single("file"), (req, res) => {
   res.status(200).json("File has been uploaded");
 });
@@ -44,8 +39,6 @@ app.post("/api/upload", upload.single("file"), (req, res) => {
 app.use("/api/auth", authRoute);
 app.use("/api/users", userRoute);
 app.use("/api/posts", postRoute);
-app.use("/api/categories", categoryRoute);
-
 app.use("/api/images", express.static("./public/images"));
 
 app.listen(port, () => {

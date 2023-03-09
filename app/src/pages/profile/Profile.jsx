@@ -6,22 +6,20 @@ import { Link } from "react-router-dom";
 import useAxios from "../../hooks/useAxios";
 
 function Profile() {
-  const url = process.env.REACT_APP_URL
+  const url = process.env.REACT_APP_URL;
 
   const location = useLocation();
   const id = location.state.id;
-  const { data: user } = useAxios(`${url}/users/${id}`,"get");
+  const { data: user } = useAxios(`${url}/users/${id}`, "get");
 
   const { data: posts } = useAxios(`${url}/posts/`, "get");
 
   // delete post
   const deletePost = async (id) => {
     try {
-      await axios.delete(`${url}/posts/${id}`,
-        { data: 
-          { username: user.username } 
-        }
-      );
+      await axios.delete(`${url}/posts/${id}`, {
+        data: { username: user.username },
+      });
       window.location.reload();
     } catch (error) {
       console.error(error);
@@ -98,13 +96,6 @@ function Profile() {
             >
               ADD POST
             </Link>
-            <div className="add-post-btn">change name</div>
-            <div className="add-post-btn">change email</div>
-            <div className="add-post-btn">change password</div>
-            <div className="add-post-btn">change photo</div>
-            <div className="add-post-btn">delete account</div>
-
-            <div className="add-post-btn">logout</div>
           </div>
         </div>
       </div>
