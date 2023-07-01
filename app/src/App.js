@@ -12,6 +12,8 @@ import Contact from "./pages/Contact/Contact";
 import About from "./pages/Aboutus/About";
 import Write from "./pages/write/Write";
 import Edit from "./pages/edit/Edit";
+import TagManager from 'react-gtm-module'
+
 const Layout = () => {
   return (
     <div className="app">
@@ -42,6 +44,12 @@ const router = createBrowserRouter([
 ]);
 
 function App() {
+  const tagManagerArgs = {
+    gtmId: 'GTM-W3KXZRH'
+};
+
+TagManager.initialize(tagManagerArgs)
+
   return (
     <>
       <div className="container">
