@@ -20,20 +20,6 @@ function Post() {
         <img className="image" src={data && data.photo} />
         <p className="content">{data && data.descreption}</p>
       </div>
-
-      {/* <div className="profile">
-        <div className="test">
-          <div className="test1">
-            <h1>{data && data.username}</h1>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde nemo
-              vel necessitatibus voluptate accusantium minima ut aliquam
-              voluptas excepturi rerum rem esse expedita nulla, pariatur natus
-              consequatur, sequi quasi atque.
-            </p>
-          </div>
-        </div>
-      </div> */}
     </div>
   );
 }

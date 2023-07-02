@@ -14,24 +14,25 @@ function Write() {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [file, setFile] = useState(null);
-
+  const [img, setImg] = useState("");
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     try {
       if (file) {
-        const imageRef = ref(storage, `images/${file.name }`);
+        const imageRef = ref(storage, `images/${file.name + v4() }`);
         await uploadBytes(imageRef, file);
         const imageUrl = await getDownloadURL(imageRef);
-        console.log("🚀 ~ file: Write.jsx:26 ~ handleSubmit ~ imageUrl:", imageUrl)
+        setImg(imageUrl);
+        console.log("🚀 ~ file: Write.jsx:26 ~ handleSubmit ~ imageUrl:", img)
 
         
 
         const res = await axios.post(`${url}/posts/`, {
           username: id,
           title,
-          description,
-          photo : imageUrl,
+          descreption : description,
+          photo: img,
         });
         console.log("🚀 ~ file: Write.jsx:26 ~ handleSubmit ~ res", res.data)
         // if (res.data) {
