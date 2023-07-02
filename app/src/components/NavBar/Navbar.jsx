@@ -10,7 +10,7 @@ function Navbar() {
 
   return (
     <header className="">
-      <nav className="hidden md:flex flex-row items-center justify-between p-4 rounded-md m-1 shadow-xl ">
+      <nav className="hidden lg:flex flex-row items-center justify-between p-4 rounded-md m-1 shadow-xl ">
         <div className="space-x-2">
           <Link className="link" to="/">
             Home
@@ -41,7 +41,7 @@ function Navbar() {
           </Link>
         </div>
       </nav>
-      <nav className="flex md:hidden flex-row items-center rounded-md m-1 justify-between p-6 shadow-xl ">
+      <nav className="flex lg:hidden flex-row items-center rounded-md m-1 justify-between p-6 shadow-xl ">
         <h1 className="text-xl font-medium animate-fade-up">
           <Link className="link" to="/" onClick={() => setShowMenu(false)}>
             Benarfa's Blog
