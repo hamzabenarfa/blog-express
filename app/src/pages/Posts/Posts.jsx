@@ -22,7 +22,7 @@ function Posts() {
             <div className="post-content-wrap">
               <img className="post-image" src={post.photo} alt="Post Image" />
               <p className="post-content">
-                {post.descreption.substring(0, 200)}...
+                {post.descreption && post.descreption.substring(0, 200)}...
               </p>
             </div>
 

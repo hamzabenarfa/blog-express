@@ -35,9 +35,9 @@ function Write() {
           photo: img,
         });
         console.log("🚀 ~ file: Write.jsx:26 ~ handleSubmit ~ res", res.data)
-        // if (res.data) {
-        //   window.location.replace(`/post/${res.data._id}`);
-        // }
+        if (res.data) {
+          window.location.replace(`/post/${res.data._id}`);
+        }
       }
     } catch (err) {
       console.log(err);

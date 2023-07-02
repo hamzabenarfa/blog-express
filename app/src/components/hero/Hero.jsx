@@ -1,11 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import "./hero.css";
+
 function Hero() {
   return (
-    <div>
-      <section className="hero-area">
-        <div className="hero-content">
+    <>
+      <section className=" flex flex-col items-center justify-center  bg-teal-400">
+        
           <h1>Welcome to our blog</h1>
           <p>
             We share the latest news and insights on technology, design and more
@@ -13,9 +13,10 @@ function Hero() {
           <Link to="/login" className="cta-button">
             Join Us
           </Link>
-        </div>
+        
+        
       </section>
-    </div>
+    </>
   );
 }
 

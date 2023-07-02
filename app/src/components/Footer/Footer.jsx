@@ -5,17 +5,15 @@ import "./footer.css";
 
 function Footer() {
   return (
-    <div className="footer">
-      <div className="bottom">
-        <div className="left">Blog</div>
-        <div className="copyright">copyright© 2023 all reserved</div>
+    <footer className="flex items-center flex-row justify-between">
+      <h1 className="font-semibold">Blog</h1>
+      <p className="text-sm">copyright© 2023 all reserved</p>
 
-        <div className="item">
-          <FacebookIcon />
-          <InstagramIcon />
-        </div>
+      <div className="">
+        <FacebookIcon />
+        <InstagramIcon />
       </div>
-    </div>
+    </footer>
   );
 }
 
