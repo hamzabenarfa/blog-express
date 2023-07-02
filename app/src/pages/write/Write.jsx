@@ -1,36 +1,43 @@
-import React from "react";
+import React, { useState } from "react";
 import { useParams } from "react-router-dom";
-import { useState } from "react";
 import axios from "axios";
 import "./write.css";
+import { storage } from "../../firebase";
+import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
+import { v4  } from "uuid";
+
 function Write() {
   const url = process.env.REACT_APP_URL;
 
   const { id } = useParams();
 
-  const [title, seTtitle] = useState("");
-  const [descreption, setdescreption] = useState("");
+  const [title, setTitle] = useState("");
+  const [description, setDescription] = useState("");
   const [file, setFile] = useState(null);
 
- 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    try {
-      const formData = new FormData();
-      formData.append("file", file);
-      await axios.post(`${url}/upload`, formData);
-    } catch (err2) {
-      console.log(err2);
-    }
-    try {
-      const res = await axios.post(`${url}/posts/`, {
-        username: id,
-        title,
-        descreption,
-        photo:`${url}/images/${file.name}`,
-      });
 
-      res.data && window.location.replace(`/post/${res.data._id}`);
+    try {
+      if (file) {
+        const imageRef = ref(storage, `images/${file.name }`);
+        await uploadBytes(imageRef, file);
+        const imageUrl = await getDownloadURL(imageRef);
+        console.log("🚀 ~ file: Write.jsx:26 ~ handleSubmit ~ imageUrl:", imageUrl)
+
+        
+
+        const res = await axios.post(`${url}/posts/`, {
+          username: id,
+          title,
+          description,
+          photo : imageUrl,
+        });
+        console.log("🚀 ~ file: Write.jsx:26 ~ handleSubmit ~ res", res.data)
+        // if (res.data) {
+        //   window.location.replace(`/post/${res.data._id}`);
+        // }
+      }
     } catch (err) {
       console.log(err);
     }
@@ -38,7 +45,7 @@ function Write() {
 
   return (
     <div>
-      <div className=" write-container">
+      <div className="write-container">
         <div className="write-card">
           <form>
             <label htmlFor="photo">Photo</label>
@@ -55,17 +62,17 @@ function Write() {
               name="title"
               id="title"
               placeholder="Enter your title..."
-              onChange={(e) => seTtitle(e.target.value)}
+              onChange={(e) => setTitle(e.target.value)}
             />
 
-            <label htmlFor="descreption">Descreption</label>
+            <label htmlFor="description">Description</label>
             <textarea
               cols="30"
               rows="10"
-              name="descreption"
-              id="descreption"
-              placeholder="Enter your descreption..."
-              onChange={(e) => setdescreption(e.target.value)}
+              name="description"
+              id="description"
+              placeholder="Enter your description..."
+              onChange={(e) => setDescription(e.target.value)}
             ></textarea>
 
             <button type="submit" className="write" onClick={handleSubmit}>
