@@ -4,5 +4,5 @@
 
 
 @layer{
-    .hero{ @apply bg-[url('../public/hero.jpg')] ;}
+    .hero{ @apply bg-[url('../public/hero.jpg')]  ;}
 }

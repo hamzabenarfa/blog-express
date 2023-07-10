@@ -12,6 +12,7 @@ import Contact from "./pages/Contact/Contact";
 import About from "./pages/Aboutus/About";
 import Write from "./pages/write/Write";
 import Edit from "./pages/edit/Edit";
+import Test from "./pages/Test/Text";
 
 const Layout = () => {
   return (
@@ -38,6 +39,7 @@ const router = createBrowserRouter([
       { path: "/about", element: <About /> },
       { path: "/write/:id", element: <Write /> },
       { path: "/edit/:id", element: <Edit /> },
+      { path: "/test", element: <Test /> },
     ],
   },
 ]);

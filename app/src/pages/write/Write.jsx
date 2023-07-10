@@ -14,7 +14,6 @@ function Write() {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [file, setFile] = useState(null);
-  const [img, setImg] = useState("");
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -23,16 +22,14 @@ function Write() {
         const imageRef = ref(storage, `images/${file.name + v4() }`);
         await uploadBytes(imageRef, file);
         const imageUrl = await getDownloadURL(imageRef);
-        setImg(imageUrl);
-        console.log("🚀 ~ file: Write.jsx:26 ~ handleSubmit ~ imageUrl:", img)
-
+      
         
 
         const res = await axios.post(`${url}/posts/`, {
           username: id,
           title,
           descreption : description,
-          photo: img,
+          photo: imageUrl,
         });
         console.log("🚀 ~ file: Write.jsx:26 ~ handleSubmit ~ res", res.data)
         if (res.data) {
@@ -76,7 +73,7 @@ function Write() {
               onChange={(e) => setDescription(e.target.value)}
             ></textarea>
 
-            <button type="submit" className="write" onClick={handleSubmit}>
+            <button type="submit" className="bg-slate-400 " onClick={handleSubmit}>
               Submit
             </button>
           </form>
