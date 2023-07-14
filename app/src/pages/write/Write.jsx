@@ -13,6 +13,7 @@ function Write() {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [file, setFile] = useState(null);
+  const [Loading, setLoading] = useState(false);
   
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -29,6 +30,7 @@ function Write() {
           descreption: description,
           photo: imageUrl,
         });
+        setLoading(true);
         if (res.data) {
           window.location.replace(`/post/${res.data._id}`);
         }
@@ -69,7 +71,7 @@ function Write() {
           id="photo"
           onChange={(e) => setFile(e.target.files[0])}
         />
-        <button type="submit" className="bg-slate-400 " onClick={handleSubmit}>
+        <button type="submit" className="bg-slate-400 " disabled={Loading} onClick={handleSubmit}>
           Submit
         </button>
       </form>

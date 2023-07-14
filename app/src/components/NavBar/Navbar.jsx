@@ -1,7 +1,6 @@
 import React from "react";
 import Person2OutlinedIcon from "@mui/icons-material/Person2Outlined";
 import { Link } from "react-router-dom";
-import { AiOutlineMenu } from "react-icons/ai";
 function Navbar() {
 
 
