@@ -8,7 +8,7 @@ function Home() {
   const { data: posts } = useAxios(`${url}/posts`, "get");
   console.log(posts)
   return (
-    <section className="flex flex-col bg-gray-200 min-h-screen">
+    <main className="flex flex-col bg-gray-200 min-h-screen">
       <Hero />
       <section className="flex flex-row justify-around p-4 pl-16  ">
 
@@ -43,8 +43,27 @@ function Home() {
         </div>
       </section>
 
+        <h1>All blog posts: </h1>
+      <section className="flex flex-row items-center justify-center">
 
-    </section>
+
+        { posts && posts.map((post) => ( 
+          <div className=" flex flex-col m-4 p-4 w-full " key={post.id}>
+            <div className="">
+              <img src={post && post.photo} alt="" className="object-cover w-64" />
+            </div>
+            <div className="w-64 ">
+            <h6 className="text-xs font-semibold capitalize">{post && post.username} {time(post && post.createdAt)}</h6>
+            <h1 className="font-bold text-2xl pt-2">{post && post.title.substring(0, 30)}...</h1>
+            <h5 className="text-sm ">{post && post.descreption.substring(0, 200)}...</h5>
+            </div>
+          </div>
+      )).slice(0, 3)
+     }
+      </section>
+
+
+    </main>
   );
 }
 
