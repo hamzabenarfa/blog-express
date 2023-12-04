@@ -10,17 +10,17 @@ function Posts() {
   const { data } = useAxios(`${url}/posts`, "get");
 
   return (
-    <div>
+    <>
       {data ? (
         data.map((post) => (
-          <div className="post-section" key={post.id}>
+          <div className="post-section  md:mx-40 lg:mx-60" key={post.id}>
             <h2 className="post-title">{post.title}</h2>
             <div className="post-meta">
               <p className="post-author">{post.username}</p>
               <p className="post-date">{time(post.createdAt)}</p>
             </div>
             <div className="post-content-wrap">
-              <img className="post-image" src={post.photo} alt="Post Image" />
+              <img className="post-image hidden md:block" src={post.photo} alt="Post Image" />
               <p className="post-content">
                 {post.descreption && post.descreption.substring(0, 200)}...
               </p>
@@ -36,7 +36,7 @@ function Posts() {
       ) : (
         <h1>Loading...</h1>
       )}
-    </div>
+    </>
   );
 }
 

@@ -23,7 +23,6 @@ function Write() {
         await uploadBytes(imageRef, file);
         const imageUrl = await getDownloadURL(imageRef);
 
-
         const res = await axios.post(`${url}/posts/`, {
           username: id,
           title,

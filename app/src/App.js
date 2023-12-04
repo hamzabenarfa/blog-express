@@ -14,6 +14,9 @@ import Write from "./pages/write/Write";
 import Edit from "./pages/edit/Edit";
 import Test from "./pages/Test/Text";
 
+import { QueryClient, QueryClientProvider } from "react-query";
+
+
 const Layout = () => {
   return (
     <div className="app">
@@ -45,12 +48,13 @@ const router = createBrowserRouter([
 ]);
 
 function App() {
+  const queryClient = new QueryClient();
 
   return (
     <>
-
+      <QueryClientProvider client={queryClient}>
         <RouterProvider router={router} />
-    
+      </QueryClientProvider>
     </>
   );
 }
