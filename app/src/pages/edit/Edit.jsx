@@ -7,10 +7,10 @@ import useAxios from "../../hooks/useAxios";
 import { Link } from "react-router-dom";
 function Edit() {
   const { id } = useParams();
-  const url = process.env.REACT_APP_URL
+  const url = process.env.REACT_APP_URL;
 
   const { data } = useAxios(`${url}/posts/${id}`, "get");
-  
+
   const [title, seTtitle] = useState("");
   const [descreption, setdescreption] = useState("");
 
@@ -28,38 +28,38 @@ function Edit() {
   };
 
   return (
-    <div>
-      <div>
-        <div className=" write-container">
-          <div className="write-card">
-            <form>
-              <label htmlFor="title">Title</label>
-              <input
-                type="text"
-                name="title"
-                id="title"
-                placeholder="Enter your title..."
-                onChange={(e) => seTtitle(e.target.value)}
-              />
+    <div className="flex items-center justify-center write-container">
+      <div className="write-card w-1/2">
+        <form>
+          <label htmlFor="title">Title</label>
+          <input
+            type="text"
+            className="p-2 text-sm"
+            name="title"
+            id="title"
+            placeholder="Enter your title..."
+            onChange={(e) => seTtitle(e.target.value)}
+          />
 
-              <label htmlFor="descreption">Descreption</label>
-              <textarea
-                cols="30"
-                rows="10"
-                name="descreption"
-                id="descreption"
-                placeholder="Enter your descreption..."
-                onChange={(e) => setdescreption(e.target.value)}
-              ></textarea>
+          <label htmlFor="descreption">Descreption</label>
+          <textarea
+            cols="30"
+            rows="10"
+            name="descreption"
+            className="p-2 text-sm"
+            id="descreption"
+            placeholder="Enter your descreption..."
+            onChange={(e) => setdescreption(e.target.value)}
+          ></textarea>
 
-                <button type="submit" className="write" onClick={handleSubmit}>
-                
-              <Link to={"/"}>Submit</Link>  
-                </button>
-             
-            </form>
-          </div>
-        </div>
+          <button
+            type="submit"
+            className="write bg-red-400"
+            onClick={handleSubmit}
+          >
+            <Link to={"/"}>Submit</Link>
+          </button>
+        </form>
       </div>
     </div>
   );
