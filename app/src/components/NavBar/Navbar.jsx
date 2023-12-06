@@ -6,7 +6,7 @@ function Navbar() {
 
   return (
     <>
-      <nav className="flex text-black items-center justify-between p-4 ">
+      <nav className="flex text-black items-center justify-between p-4 border-b ">
         <div className="">
           <Link className="text-xl font-semibold" to="/">
             Benarfa's Blog

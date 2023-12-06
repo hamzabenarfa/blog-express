@@ -25,20 +25,20 @@ function Login() {
   }
 
   return (
-    <div>
-      <div className="login-page">
-        <div className="l-form">
+    <>
+      <div className="login-page min-h-screen ">
+        <div className="l-form p-12 rounded-xl">
           <form className="login-form" onSubmit={submit}>
             <input type="text" ref={username} placeholder="username" />
             <input type="password" ref={password} placeholder="password" />
-            <button type="submit">login</button>
+            <button type="submit" className=" rounded-md">login</button>
             <p className="message">
               Not registered? <Link to="/register">Create an account</Link>
             </p>
           </form>
         </div>
       </div>
-    </div>
+    </>
   );
 }
 
