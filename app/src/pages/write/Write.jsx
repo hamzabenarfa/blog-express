@@ -14,7 +14,7 @@ function Write() {
   const [description, setDescription] = useState("");
   const [file, setFile] = useState(null);
   const [Loading, setLoading] = useState(false);
-  
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
@@ -39,12 +39,12 @@ function Write() {
     }
   };
 
-  
-
   return (
-    <div className="min-h-screen p-8 mt-8">
-      <form className="text-5xl space-y-4">
-        <label htmlFor="title" className="text-5xl font-bold ">Title</label>
+    <div className=" flex items-center justify-center min-h-screen ">
+      <form className="text-xl space-y-4 w-2/5 shadow-xl bg-white rounded-xl p-4">
+        <label htmlFor="title" className="text-5xl font-bold ">
+          Title
+        </label>
         <input
           type="text"
           name="title"
@@ -63,14 +63,18 @@ function Write() {
           onChange={(e) => setDescription(e.target.value)}
         ></textarea>
 
-        <label htmlFor="photo">Photo</label>
         <input
           type="file"
           name="photo"
           id="photo"
           onChange={(e) => setFile(e.target.files[0])}
         />
-        <button type="submit" className="bg-slate-400 " disabled={Loading} onClick={handleSubmit}>
+        <button
+          type="submit"
+          className="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded-l "
+          disabled={Loading}
+          onClick={handleSubmit}
+        >
           Submit
         </button>
       </form>

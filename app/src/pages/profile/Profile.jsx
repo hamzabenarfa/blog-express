@@ -4,7 +4,7 @@ import photo from "../../photo/express.jpg";
 
 import { Link } from "react-router-dom";
 import useAxios from "../../hooks/useAxios";
-
+import Card from "./components/card";
 function Profile() {
   const url = process.env.REACT_APP_URL;
 
@@ -27,11 +27,16 @@ function Profile() {
   };
 
   return (
-    <secion className="min-h-screen">
-      <header className="  flex justify-between  bg-teal-500 ">
-        <div className="flex items-center gap-2 ">
-          <img className="h-10 w-10 rounded-2xl" src={photo} alt="User Photo" />
-          <p className="text-2xl capitalize font-bold">
+    <secion className="flex flex-row min-h-screen">
+      <header className="flex flex-col justify-arounds items-center w-30 space-y-4 p-4   ">
+        <div className="flex flex-col justify-center items-center gap-2 ">
+          <h1 className="font-bold text-3xl ">Menu</h1>
+          <img
+            className="h-16 w-16 rounded-full"
+            src={photo}
+            alt="User Photo"
+          />
+          <p className="text-xl capitalize font-bold">
             {user && user.username}
           </p>
         </div>
@@ -43,38 +48,16 @@ function Profile() {
         </Link>
       </header>
       <div>
-        {posts ? (
+      {posts ? (
           posts.map((post) => {
             return (
               <div key={post.id}>
                 {user ? (
                   user.username === post.username && (
-                    <div className="flex flex-col items-start space-y-2 justify-center bg-teal-400 m-4 rounded-lg p-4 md:max-w-xl ">
-                      <h2 className="text-xl font-bold ">
-                        <Link to={`/post/${post._id}`}>{post.title}</Link>
-                      </h2>
-
-                      <p className="text-lg">
-                        {post.descreption && post.descreption.substring(0, 100)}
-                        ...
-                      </p>
-
-                      <div className=" space-x-2">
-                        <Link to={`/edit/${post._id}`}>
-                          <button className="">Edit</button>
-                        </Link>
-
-                        <button
-                          className=""
-                          onClick={() => deletePost(post._id)}
-                        >
-                          Delete
-                        </button>
-                      </div>
-                    </div>
+                    <Card key={post._id} post={post} deletePost={deletePost} />
                   )
                 ) : (
-                  <h1>no posts</h1>
+                  <h1 className="text-5xl">no posts</h1>
                 )}
               </div>
             );
