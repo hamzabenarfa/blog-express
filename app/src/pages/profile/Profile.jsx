@@ -4,69 +4,62 @@ import photo from "../../photo/express.jpg";
 
 import { Link } from "react-router-dom";
 import useAxios from "../../hooks/useAxios";
-import Card from "./components/card";
+import Card from './components/card'
+
 function Profile() {
   const url = process.env.REACT_APP_URL;
-
   const location = useLocation();
-  const id = location.state.id;
+  const id = location.state?.id;
   const { data: user } = useAxios(`${url}/users/${id}`, "get");
-
   const { data: posts } = useAxios(`${url}/posts/`, "get");
 
   // delete post
-  const deletePost = async (id) => {
+  const deletePost = async (postId) => {
     try {
-      await axios.delete(`${url}/posts/${id}`, {
-        data: { username: user.username },
+      await axios.delete(`${url}/posts/${postId}`, {
+        data: { username: user?.username },
       });
+      // Refresh the list of posts
       window.location.reload();
     } catch (error) {
-      console.error(error);
+      console.error("Failed to delete post:", error);
     }
   };
 
   return (
-    <secion className="flex flex-row min-h-screen">
-      <header className="flex flex-col justify-arounds items-center w-30 space-y-4 p-4   ">
-        <div className="flex flex-col justify-center items-center gap-2 ">
-          <h1 className="font-bold text-3xl ">Menu</h1>
+    <section className="flex flex-col min-h-screen bg-gray-100">
+      <header className="flex items-center justify-between flex-row bg-white shadow-md p-6 m-4 rounded-2xl">
+        <div className="flex items-center  space-x-4">
           <img
-            className="h-16 w-16 rounded-full"
+            className="h-24 w-24 rounded-full border-2 border-gray-300"
             src={photo}
-            alt="User Photo"
+            alt={user?.username}
           />
-          <p className="text-xl capitalize font-bold">
-            {user && user.username}
-          </p>
+          <div>
+            <h1 className="text-3xl font-bold">{user?.username}</h1>
+            <p className="text-gray-600">@{user?.username}</p>
+          </div>
         </div>
         <Link
-          to={`/write/${user && user.username}`}
-          className=" bg-purple-500 hover:bg-purple-700 text-white font-bold p-2  rounded"
+          to={`/write/${user?.username}`}
+          className="mt-4 inline-block bg-purple-500 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded"
         >
-          ADD POST
+          Add Post
         </Link>
       </header>
-      <div>
-      {posts ? (
-          posts.map((post) => {
-            return (
-              <div key={post.id}>
-                {user ? (
-                  user.username === post.username && (
-                    <Card key={post._id} post={post} deletePost={deletePost} />
-                  )
-                ) : (
-                  <h1 className="text-5xl">no posts</h1>
-                )}
-              </div>
-            );
-          })
+      
+      <main className="  container flex items-center justify-center flex-col " >
+        {posts && posts.length > 0 ? (
+          posts
+            .filter(post => user?.username === post.username)
+            .map(post => (
+              <Card key={post._id} post={post} deletePost={deletePost} />
+            ))
         ) : (
-          <h1>no posts</h1>
+          <p className="text-center text-gray-500">No posts available</p>
         )}
-      </div>
-    </secion>
+      </main>
+    </section>
   );
 }
 

@@ -18,7 +18,7 @@ function Login() {
     setLoading(true);
     try {
       const res = await axios.post(`${url}/auth/login`, {
-        username: username.current.value,
+        email: username.current.value,
         password: password.current.value,
       });
       res.data && history("/profile", { state: { id: res.data._id } });

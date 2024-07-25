@@ -23,7 +23,7 @@ const MainContent = () => {
 
   return (
     <section className="flex flex-col md:flex-row justify-around p-4">
-      <div className="mb-8 md:mb-0">
+      <div className="mb-8 md:mb-0 ">
         <div className="w-full md:w-96">
           <h1 className="text-2xl font-semibold">Recent Blog Posts</h1>
           {posts && posts[1] && (
@@ -55,7 +55,7 @@ const MainContent = () => {
         </div>
       </div>
 
-      <div className="w-full">
+      <div className="w-full md:max-w-2xl">
         {posts &&
           posts
             .slice(0, 3)

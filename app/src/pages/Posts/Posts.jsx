@@ -13,7 +13,7 @@ function Posts() {
     <>
       {data ? (
         data.map((post) => (
-          <div className="post-section  md:mx-40 lg:mx-60" key={post.id}>
+          <div className="post-section  md:mx-40 lg:mx-60" key={post._id}>
             <h2 className="post-title">{post.title}</h2>
             <div className="post-meta">
               <p className="mr-2 capitalize font-bold"> {post.username}</p>
