@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+
 const PostSchema = new mongoose.Schema(
   {
     title: {
@@ -6,7 +7,7 @@ const PostSchema = new mongoose.Schema(
       required: true,
       unique: true,
     },
-    descreption: {
+    description: { // Fixed typo from 'description' to 'description'
       type: String,
       required: true,
     },
@@ -14,11 +15,13 @@ const PostSchema = new mongoose.Schema(
       type: String,
       default: "",
     },
-    username: {
-      type: String,
+    user: { // Reference to the User model
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "User",
       required: true,
     },
   },
   { timestamps: true }
 );
+
 module.exports = mongoose.model("Post", PostSchema);

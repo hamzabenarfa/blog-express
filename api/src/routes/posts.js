@@ -5,11 +5,13 @@ const {
   deletePost,
   getPostById,
   getAllPosts,
+  getMyOwnPosts,
 } = require("../controller/post");
 
 router.post("/", createPost);
 router.put("/:id", updatePost);
 router.delete("/:id", deletePost);
+router.get("/my-posts", getMyOwnPosts);
 router.get("/:id", getPostById);
 router.get("/", getAllPosts);
 

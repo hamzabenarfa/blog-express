@@ -1,7 +1,6 @@
 const apiRoutes = require("./api");
 
 /**
- * 
  *  v1 
  */
 const setupRoutes = (app) => {
