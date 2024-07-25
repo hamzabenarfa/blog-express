@@ -22,7 +22,7 @@ const PostPreview = ({ post }) => (
         </h1>
       </Link>
       <h5 className="text-sm">
-        {post.descreption.substring(0, 200)}...
+        {post.description.substring(0, 200)}...
       </h5>
     </div>
   </div>

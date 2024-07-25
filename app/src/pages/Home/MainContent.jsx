@@ -47,7 +47,7 @@ const MainContent = () => {
                   </h1>
                 </Link>
                 <h5 className="text-sm">
-                  {posts[1].descreption.substring(0, 200)}
+                  {posts[1].description.substring(0, 200)}
                 </h5>
               </>
             )}

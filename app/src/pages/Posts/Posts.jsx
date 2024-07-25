@@ -26,7 +26,7 @@ function Posts() {
                 alt={post.title}
               />
               <p className="md:post-content">
-                {post.descreption && post.descreption.substring(0, 200)}...
+                {post.description && post.description.substring(0, 200)}...
               </p>
             </div>
 

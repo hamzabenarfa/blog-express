@@ -12,7 +12,7 @@ function Edit() {
   const { data } = useAxios(`${url}/posts/${id}`, "get");
 
   const [title, seTtitle] = useState("");
-  const [descreption, setdescreption] = useState("");
+  const [description, setdescreption] = useState("");
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -20,7 +20,7 @@ function Edit() {
       await axios.put(`${url}posts/${id}`, {
         username: data.username,
         title,
-        descreption,
+        description,
       });
     } catch (err) {
       console.log(err);
@@ -41,14 +41,14 @@ function Edit() {
             onChange={(e) => seTtitle(e.target.value)}
           />
 
-          <label htmlFor="descreption">Descreption</label>
+          <label htmlFor="description">description</label>
           <textarea
             cols="30"
             rows="10"
-            name="descreption"
+            name="description"
             className="p-2 text-sm"
-            id="descreption"
-            placeholder="Enter your descreption..."
+            id="description"
+            placeholder="Enter your description..."
             onChange={(e) => setdescreption(e.target.value)}
           ></textarea>
 

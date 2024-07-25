@@ -26,7 +26,7 @@ function Write() {
         const res = await axios.post(`${url}/posts/`, {
           username: id,
           title,
-          descreption: description,
+          description: description,
           photo: imageUrl,
         });
         setLoading(true);

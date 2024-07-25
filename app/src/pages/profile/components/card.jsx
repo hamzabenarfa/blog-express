@@ -11,7 +11,7 @@ function Card({ post, deletePost }) {
           </Link>
         </h2>
         <p className="text-gray-700 mb-4">
-          {post.descreption ? post.descreption.substring(0, 200) + '...' : 'No description available'}
+          {post.description ? post.description.substring(0, 200) + '...' : 'No description available'}
         </p>
         <div className="flex justify-end space-x-2">
           <Link to={`/edit/${post._id}`}>

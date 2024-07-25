@@ -28,7 +28,7 @@ function Post() {
         <h1 className="text-4xl font-bold text-gray-800 mb-4">{post.title}</h1>
         <p className="text-sm text-gray-600 mb-2">By {post.username} | {formattedDate}</p>
         <img src={post.photo} alt={post.title} className="w-full h-auto rounded-lg mb-6" />
-        <p className="text-lg text-gray-700 leading-relaxed mb-8">{post.descreption}</p>
+        <p className="text-lg text-gray-700 leading-relaxed mb-8">{post.description}</p>
         {/* Optional: Add a comment section or author bio */}
       </div>
     </section>
