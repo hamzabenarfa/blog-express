@@ -8,6 +8,10 @@ dotenv.config();
 
 const app = express();
 
+app.get("/", (req, res) => {
+    res.send("Server working!");
+    });
+
 configureMiddleware(app);
 connectDatabase();
 setupRoutes(app);
