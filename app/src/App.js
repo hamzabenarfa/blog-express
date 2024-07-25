@@ -8,14 +8,10 @@ import Login from "./pages/login/Login";
 import Register from "./pages/register/Register";
 import "./App.css";
 import Profile from "./pages/profile/Profile";
-import Contact from "./pages/Contact/Contact";
-import About from "./pages/Aboutus/About";
 import Write from "./pages/write/Write";
 import Edit from "./pages/edit/Edit";
-import Test from "./pages/Test/Text";
 
 import { QueryClient, QueryClientProvider } from "react-query";
-
 
 const Layout = () => {
   return (
@@ -38,11 +34,9 @@ const router = createBrowserRouter([
       { path: "/login", element: <Login /> },
       { path: "/register", element: <Register /> },
       { path: "/profile", element: <Profile /> },
-      { path: "/contact", element: <Contact /> },
-      { path: "/about", element: <About /> },
       { path: "/write/:id", element: <Write /> },
       { path: "/edit/:id", element: <Edit /> },
-      { path: "/test", element: <Test /> },
+      { path: "*", element: <h1>404 Not Found</h1> },
     ],
   },
 ]);

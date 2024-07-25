@@ -6,7 +6,7 @@ function Navbar() {
 
   return (
     <>
-      <nav className="flex text-black items-center justify-between p-4 border-b ">
+      <nav className="flex text-black items-center justify-between p-4 py-6 border-b ">
         <div className="">
           <Link className="text-xl font-semibold" to="/">
             Blog Express
@@ -19,16 +19,7 @@ function Navbar() {
               Posts
             </Link>
           </div>
-          {/* <div>
-            <Link className="link" to="/about">
-              About us
-            </Link>
-          </div>
-          <div>
-            <Link className="link" to="/contact">
-              Contact
-            </Link>
-          </div> */}
+    
           <div>
             <Link className="link" to="/login">
               <Person2OutlinedIcon />

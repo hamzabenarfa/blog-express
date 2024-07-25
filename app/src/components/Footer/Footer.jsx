@@ -1,8 +1,6 @@
 import React from "react";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import InstagramIcon from "@mui/icons-material/Instagram";
-import "./footer.css";
-
 function Footer() {
   return (
     <footer className="flex items-center flex-row justify-between">
