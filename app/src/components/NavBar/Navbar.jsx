@@ -9,7 +9,7 @@ function Navbar() {
       <nav className="flex text-black items-center justify-between p-4 border-b ">
         <div className="">
           <Link className="text-xl font-semibold" to="/">
-            Benarfa's Blog
+            Blog Express
           </Link>
         </div>
 
@@ -19,7 +19,7 @@ function Navbar() {
               Posts
             </Link>
           </div>
-          <div>
+          {/* <div>
             <Link className="link" to="/about">
               About us
             </Link>
@@ -28,7 +28,7 @@ function Navbar() {
             <Link className="link" to="/contact">
               Contact
             </Link>
-          </div>
+          </div> */}
           <div>
             <Link className="link" to="/login">
               <Person2OutlinedIcon />

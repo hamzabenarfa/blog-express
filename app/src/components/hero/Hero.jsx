@@ -1,36 +1,25 @@
 import React from "react";
-import FacebookRoundedIcon from "@mui/icons-material/FacebookRounded";
-import InstagramIcon from "@mui/icons-material/Instagram";
-import TwitterIcon from "@mui/icons-material/Twitter";
-
+import { Link } from "react-router-dom";
 function Hero() {
   return (
     <>
-      <section
-        className="flex min-h-screen items-center flex-col justify-center "
-        style={{
-          backgroundImage: `url(/111.jpg)`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-          borderImage: "linear-gradient(#0003, #000)",
-          borderImageSlice: 1,
-        }}
-      >
-        <div className="flex items-center justify-center flex-col space-y-4">
-          <h1 className="text-7xl font-bold  ">
-            Inside Design: Stories and interviews
+      <section className="flex min-h-screen items-center flex-col py-4 md:flex-row justify-center md:px-10 bg-white">
+        <div className="text-left flex items-center justify-center flex-col space-y-6 p-8 ">
+          <h1 className="text-7xl font-extrabold drop-shadow-lg">
+            Become a Blogger Now
           </h1>
-          <h1 className="text-2xl">
-            Subscribe to learn about new product features , the lateest in
-            technology and undates.
-          </h1>
-          <h6>Follow Us On</h6>
+          <p className="text-xl font-light max-w-2xl">
+            Share your stories and insights with the world in just a few clicks.
+            Join our community of passionate bloggers today!
+          </p>
+          <Link to="/register">
+          <button className="bg-gradient-to-r from-blue-500 to-purple-600 text-white mt-6 px-8 py-4 bg-white rounded-full text-lg font-semibold hover:text-blue-200 transition duration-300">
+            Create Your Account
+          </button>
+          </Link>
         </div>
-        <div className="flex items-center justify-center gap-2 ">
-          <FacebookRoundedIcon />
-          <TwitterIcon />
-          <InstagramIcon />
-        </div>
+
+        <img src="./svg/hero.svg" alt="" className="px-8" />
       </section>
     </>
   );

@@ -22,19 +22,18 @@ function Login() {
         password: password.current.value,
       });
       res.data && history("/profile", { state: { id: res.data._id } });
-
     } catch (err) {
       console.log(err);
       setError(true);
       setLoading(false);
-    }finally {
+    } finally {
       setLoading(false);
     }
   }
 
   return (
     <>
-      <div className="login-page min-h-screen ">
+      <div className="login-page  ">
         <div className="l-form p-12 rounded-xl">
           <form className="login-form" onSubmit={submit}>
             <input type="text" ref={username} placeholder="username" />
@@ -49,10 +48,16 @@ function Login() {
                 Loading...
               </p>
             )}
-<button type="submit" disabled={Loading} className={`rounded-md ${Loading && 'opacity-50 cursor-not-allowed'}`}>
+            <button
+              type="submit"
+              disabled={Loading}
+              className={`rounded-md ${
+                Loading && "opacity-50 cursor-not-allowed"
+              }`}
+            >
               login
             </button>
-            
+
             <p className="message">
               Not registered? <Link to="/register">Create an account</Link>
             </p>
